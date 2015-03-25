@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+	font-size: 24px;
+	padding: 10px;
+}
+
+.campo {
+	padding: 5px 10px;
+}
+
+.campo input[type='text'] {
+	border: 1px solid #ccc;
+	font-size: 16px;
+	padding: 5px;
+	width: 300px;
+}
+
+.radio {
+	margin: 10px 0 40px;
+	padding: 0 10px;
+}

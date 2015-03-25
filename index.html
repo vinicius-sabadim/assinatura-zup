@@ -1,0 +1,101 @@
+<!doctype html>
+<html data-ng-app="app">
+
+<head>
+	<meta charset="utf-8">
+	<title>Assinatura de e-mail - ZUP IT</title>
+	
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="site.css">
+</head>
+
+<body data-ng-controller="MainController">
+	<h1>Assinatura de e-mail - ZUP IT</h1>
+	
+	<div class="campo">
+		<input type="text" data-ng-model="nome" placeholder="Nome">
+	</div>
+	
+	<div class="campo">
+		<input type="text" data-ng-model="cargo" placeholder="Cargo">
+	</div>
+	
+	<div class="campo">
+		<input type="text" data-ng-model="email" placeholder="E-mail">
+	</div>
+	
+	<div class="campo">
+		<input type="text" data-ng-model="telefone" placeholder="Telefone">
+	</div>
+	
+	<div class="campo">
+		<label>
+			<input type="checkbox" data-ng-checked="mostrarTelefone" data-ng-model="mostrarTelefone">
+			Mostrar telefone da Zup
+		</label>
+	</div>
+	
+	<div class="radio">
+		<label><input type="radio" value="ribeirao" data-ng-model="local"> Ribeirão Preto</label><br>
+		<label><input type="radio" value="riopreto" data-ng-model="local"> São José do Rio Preto</label><br>
+		<label><input type="radio" value="saopaulo" data-ng-model="local"> São Paulo</label><br>
+		<label><input type="radio" value="uberlandia" data-ng-model="local"> Uberlândia</label>
+	</div>
+	
+	<table style="padding-top: 10px;">
+		<tr>
+			<td style="padding: 0 20px 0 10px; vertical-align: middle; width: 100px;">
+				<img src="logo.png" alt="Logo - ZUP" style="width: 100px;">
+			</td>
+
+			<td style="font-size: 14px;">
+				<span style="color: #013750; font-weight: bold;" data-ng-bind="nome"></span> <span data-ng-bind="'/ ' + cargo"></span><br>
+				<img src="icone-email.jpg" alt="Ícone de e-mail">
+				<a style="color: #a5c139; text-decoration: none; vertical-align: super;" href="mailto:{{email}}" data-ng-bind="email"></a><br>
+				<img src="icone-mobile.jpg" alt="Ícone de celular"> <span style="vertical-align: super; margin-right: 10px;" data-ng-bind="telefone"></span>
+				<img src="icone-telefone.jpg" alt="Ícone de telefone" data-ng-show="mostrarTelefone">
+				
+				<!-- Telefone - São José do Rio Preto -->
+				<span style="vertical-align: super;" data-ng-show="mostrarTelefone && local === 'riopreto'">
+					(17) 3353-3318
+				</span>
+				
+				<!-- Telefone - Outros -->
+				<span style="vertical-align: super;" data-ng-show="mostrarTelefone && local !== 'riopreto'">
+					(34) 3210-8181
+				</span>
+
+				<h1 style="color: #013750; font-size: 14px; font-weight: bold; padding: 0; margin: 10px 0 3px;">ZUP IT INNOVATION</h1>
+				
+				<!-- Ribeirão Preto -->
+				<div data-ng-show="local === 'ribeirao'">
+					<span style="font-size: 10px; line-height: 12px; display: inline-block;">Ribeirão Preto - SP</span>
+				</div>
+
+				<!-- São José do Rio Preto -->
+				<div data-ng-show="local === 'riopreto'">
+					<span style="font-size: 10px; line-height: 12px; display: inline-block;">Rua Saldanha Marinho, 2815, 3º Andar - Sala 31<br>
+					São José do Rio Preto - SP</span>
+				</div>
+				
+				<!-- São Paulo -->
+				<div data-ng-show="local === 'saopaulo'">
+					<span style="font-size: 10px; line-height: 12px; display: inline-block;">São Paulo - SP</span>
+				</div>
+
+				<!-- Uberlândia -->
+				<div data-ng-show="local === 'uberlandia'">
+					<span style="font-size: 10px; line-height: 12px; display: inline-block;">Avenida Nicomedes Alves dos Santos, 1205, Sala 105<br>
+					Uberlândia - MG</span>
+				</div>
+
+			</td>
+		</tr>
+	</table>
+	
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
